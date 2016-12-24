@@ -21,7 +21,7 @@ struct ChangePasscodeState: PasscodeLockStateType {
         description = (stringsToShow?.passcodeLockChangeDescription ?? localizedStringFor("PasscodeLockChangeDescription", comment: "Change passcode description"))
     }
     
-	func acceptPasscode(passcode: [String], fromLock lock: PasscodeLockType, stringsToShow: StringsToBeDisplayed?) {
+	func acceptPasscode(_ passcode: [String], fromLock lock: PasscodeLockType, stringsToShow: StringsToBeDisplayed?) {
         
         guard let currentPasscode = lock.repository.passcode else {
             return
