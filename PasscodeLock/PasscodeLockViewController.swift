@@ -101,7 +101,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         titleLabel?.text = passcodeLock.state.title
         descriptionLabel?.text = passcodeLock.state.description
         touchIDButton?.isHidden = !passcodeLock.isTouchIDAllowed
-		touchIDButton?.setTitle((self.stringsToShow?.useTouchID ?? localizedStringFor("UseTouchId", comment: "")), for: UIControlState())
+		touchIDButton?.setTitle((self.stringsToShow?.useTouchID ?? localizedStringFor("UseTouchId", comment: "")), for: .normal)
 		self.cancelDeleteButtonSetup()
     }
     
@@ -268,7 +268,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
 		
 		let cancelButton = ((self.passcodeLock.isPincodeEmpty == true) ? (self.stringsToShow?.cancel ?? localizedStringFor("Cancel", comment: "")) : (self.stringsToShow?.delete ?? localizedStringFor("Delete", comment: "")))
 		let titleForButton = ((self.passcodeLock.state.isCancellableAction == true) ? cancelButton : (self.stringsToShow?.delete ?? localizedStringFor("Delete", comment: "")))
-		self.cancelDeleteButton?.setTitle(titleForButton, for: UIControlState())
+		self.cancelDeleteButton?.setTitle(titleForButton, for: .normal)
 
 		if (self.passcodeLock.isPincodeEmpty == true && self.passcodeLock.state.isCancellableAction == false) {
 			self.cancelDeleteButton?.isEnabled = false

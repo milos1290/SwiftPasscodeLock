@@ -129,13 +129,12 @@ open class PasscodeLockPresenter {
     }
     
     internal func animatePasscodeLockDismissal() {
-        
         UIView.animate(
             withDuration: 0.5,
             delay: 0,
             usingSpringWithDamping: 1,
             initialSpringVelocity: 0,
-            options: UIViewAnimationOptions(),
+            options: [.curveEaseInOut],
             animations: { [weak self] in
                 
                 self?.passcodeLockWindow.alpha = 0
