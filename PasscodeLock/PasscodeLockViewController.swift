@@ -140,11 +140,6 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         passcodeLock.addSign(sender.passcodeSign)
     }
     
-    @IBAction func cancelButtonTap(_ sender: UIButton) {
-        
-        dismissPasscodeLock(passcodeLock)
-    }
-    
     @IBAction func deleteSignButtonTap(_ sender: UIButton) {
 
 		if (passcodeLock.isPincodeEmpty == true && passcodeLock.state.isCancellableAction == true) {
@@ -266,7 +261,8 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
 
 	open func cancelDeleteButtonSetup() {
 		
-		let cancelButton = ((self.passcodeLock.isPincodeEmpty == true) ? (self.stringsToShow?.cancel ?? localizedStringFor("Cancel", comment: "")) : (self.stringsToShow?.delete ?? localizedStringFor("Delete", comment: "")))
+		let cancelButton = (self.passcodeLock.isPincodeEmpty == true) ? (self.stringsToShow?.cancel ?? localizedStringFor("Cancel", comment: "")) : (self.stringsToShow?.delete ?? localizedStringFor("Delete", comment: ""))
+
 		let titleForButton = ((self.passcodeLock.state.isCancellableAction == true) ? cancelButton : (self.stringsToShow?.delete ?? localizedStringFor("Delete", comment: "")))
 		self.cancelDeleteButton?.setTitle(titleForButton, for: .normal)
 
